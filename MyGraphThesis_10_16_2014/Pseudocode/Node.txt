@@ -1,0 +1,19 @@
+Class Node
+
+Constructor
+Node(parameters: id:int, label:string){
+	set id
+	set label
+	set parent = null
+	set visited = false
+}
+
+function "setVisited" 
+setVisited(parameter: bool:boolean){
+	set visited = bool
+}
+
+function "isVisited", returns (bool:Boolean)
+isVisited(){
+	return value of visited
+}

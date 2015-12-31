@@ -1,0 +1,11 @@
+Class Edge
+
+constructor
+Edge(parameters: source, destination){
+	Set source node
+	set target node
+}
+
+Other functions:
+	getters and setters for source and target nodes
+	toString

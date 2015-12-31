@@ -1,0 +1,27 @@
+Class BFSTree
+
+Constructor
+BFSTree(parameters: graph, summit){
+	Set tree = new vector of nodes
+	Set queue = new linkedList of nodes
+	Set visited nodes = new vector of nodes
+	Call constructTree(argument: summit)
+}
+
+Method "ConstructTree"
+constructTree(parameters: summit){
+	set parent of summit to null
+	mark summit as unvisited
+	add summit to the queue
+	while the queue is not empty
+		add the head of the queue to the tree
+		remove the head from the queue
+		for all successors of head
+			if the successor is not yet visited
+				set head as parent of successor
+				set successor as visited
+				add successor to the queue
+			end if
+		end for
+	end while
+}

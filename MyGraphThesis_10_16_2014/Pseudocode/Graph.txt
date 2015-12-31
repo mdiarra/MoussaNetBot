@@ -1,0 +1,92 @@
+Class Graph
+
+Constructor1:
+Graph(parameters: a boolean){
+	Initialize graph whether directed or not
+}
+
+Constructor2:
+Graph(parameters: Vector of nodes, Vector of edges){
+	Set graph nodes
+	Set graph edges
+	Initialize graph whether directed or not
+}
+
+Method "addEdge"
+addEdge(parameter: an Edge){
+	if the graph contains source and target nodes of the edge then
+		addEdge between source and target
+		if the graph is not directed then
+			add edge between target and source as well
+		end if
+	  else
+			print error
+	end if 
+}
+
+Method "getPredecessors", Returns(Vector of nodes)
+getPredecessors(parameter: a node){
+	for all edges in the graph
+		if the target node of the edge = given node then
+			add the source node of the edge to predecessors vector
+		end if
+	end for
+	return predecessors vector
+}
+
+Method "getSuccessors", Returns(Vector of nodes)
+getSuccessors(parameter: a node){
+	for all edges in the graph
+		if the source node of the edge = given node then
+			add the target node of the edge to predecessors vector
+		end if
+	end for
+	return successors vector
+}
+
+Method "getNeighbors", Returns(Vector of nodes)
+getNeighbors(parameter: a node){
+	for all edges in the graph
+		if the target node or the source node of the edge = given node then
+			add source node or target node to the neighbors vector
+		end if
+	end for
+	return neighbors vector
+}
+
+Method "getShortestPath", Returns(Vector of nodes)
+getShortestPath(arguments: starting node, target node){
+Create new BFSTree(arguments: current graph, starting node)
+set path:vector to new
+if starting node = target node then
+	return path = starting node
+end if
+if the tree contains target node then
+	stack target node
+	repeat
+		add the parent of the stack's last element to the stack
+	while parent is different of starting node
+end if
+reconstruct path backward from stack
+return path
+}
+
+Method "getClosenessOf", returns(closeness: float)
+getClosenessOf(parameter: n: node){
+set shortestPathsLength = 0
+for each node of the graph
+	get the shortest Path's length between n and current node
+	increment shortestPathsLength with that value
+	closeness = shortestPathsLength/total nodes in graph
+}
+
+Method "getBetweennessOf", returns(betweenness: float)
+getBetweennessOf(parameters: node){
+set betweenness = 0
+for each pair of node of the graph, excluding the given node
+	if shortest path between the pair of node contains the given node then
+		increment betweenness with 1
+	end if
+end for
+return betweenness
+}

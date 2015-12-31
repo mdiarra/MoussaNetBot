@@ -1,0 +1,38 @@
+Class GraphFileReader
+
+Constructor
+GraphFileReader(parameter: ".gml" file path){
+	set graphData = new vector of string
+	set allNodes = new vector of Nodes
+	set allEdges = new vector of edges
+	call loadData()
+	call createNodes()
+	call createEdges()
+}
+
+Method "loadData"
+loadData(){
+	Read gml file and save data in a vector
+}
+
+Method "createNodes", returns number of nodes
+createNodes(){
+	for each string:s in graph data
+		if s = "node ["
+			create node:n with next two indexes
+			add n to allnodes:vector
+		end if
+	end for
+return number of nodes
+}
+
+Method "createEdges", returns number of edges
+createEdges(){
+	for each string:s in graph data
+		if s = "edge ["
+			create edge:e with next two indexes
+			add e to allEdges:vector
+		end if
+	end for
+return number of edges
+}
